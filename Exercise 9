@@ -1,0 +1,9 @@
+# calculate the difference between sales and discount value
+
+df_full = df.withColumn("Discount Value", col("Sales Before Discount") - col("Sales"))
+total_sales = df_full.agg(F.round(F.sum("Sales"), 2)).withColumnRenamed("round(sum(Sales), 2)", "Total_Sales")
+total_sales.show()
+total_discount = df_full.agg(F.round(F.sum("Discount Value"), 2)).withColumnRenamed("round(sum(Discount Value), 2)", "Total_Discount")
+total_discount.show()
+Difference = total_sales.join(total_discount).withColumn("Difference", total_sales.Total_Sales-total_discount.Total_Discount)
+Difference.show()
