@@ -1,0 +1,2 @@
+# how any different discount brackets exist? what are they?
+df.groupBy("Discount").count().show()
