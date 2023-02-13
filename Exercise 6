@@ -1,0 +1,2 @@
+# who are the top 5 most profitable customers
+df.select("Customer Name", "Profit").groupBy("Customer Name").agg(F.round(F.sum("Profit"), 2)).orderBy("round(sum(Profit), 2)", ascending = False).limit(5).show()
