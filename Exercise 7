@@ -1,0 +1,5 @@
+# get all the rows belonging to those 5 customer names: hint, you may need the collect method - how many rows are they?
+
+top_cust = df.groupBy("Customer Name").agg(F.round(F.sum("Profit"), 2)).orderBy("round(sum(Profit), 2)", ascending = False).limit(5).collect()
+name_cust = [row[0] for row in top_cust]
+df.filter(df["Customer Name"].isin(name_cust)).orderBy("Customer Name").show()
