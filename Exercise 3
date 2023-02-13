@@ -1,2 +1,5 @@
 # how any different discount brackets exist? what are they?
-df.groupBy("Discount").count().show()
+
+discount_bracket = df.groupBy("Discount").count()
+discount_bracket.count()
+discount_bracket.show()
