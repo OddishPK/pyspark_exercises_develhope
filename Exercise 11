@@ -1,0 +1,5 @@
+# find the discount bracket which made us not gain the most (dynamically)
+
+df_lostdisc = df_full.groupBy("Discount").agg(F.round(F.sum("Discount Value"), 2)).withColumnRenamed("round(sum(Discount Value), 2)", ("Total Lost to Discount")).orderBy("Total Lost to Discount", ascending = False).limit(1).collect()
+most_lost_disc = [row[0] for row in df_lostdisc]
+df_lostdiscount.filter(df_lostdiscount["Discount"].isin(most_lost_disc)).show()
