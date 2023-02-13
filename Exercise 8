@@ -1,0 +1,5 @@
+# create a new column which is the value of the sale were there not discount applied. Hint: orginal = sales/(1-d)
+
+from pyspark.sql.functions import col, lit
+df = df.withColumn("Sales Before Discount", col("Sales")/(1-col("Discount")))
+df.show()
