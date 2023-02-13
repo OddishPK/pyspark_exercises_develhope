@@ -1,0 +1,4 @@
+# how many rows of the EU Superstore dataset have the country being France
+
+df1 = df.filter(df["Country"] == "France")
+df1.count()
