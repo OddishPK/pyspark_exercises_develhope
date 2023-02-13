@@ -1,2 +1,0 @@
-# of those, how many are profitable?
-df1.filter(df1["Profit"] > 0).count()
