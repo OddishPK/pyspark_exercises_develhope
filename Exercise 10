@@ -1,0 +1,4 @@
+# how much money did we not gain due to the discounts - per discount bracket?
+
+df_lostdiscount = df_full.groupBy("Discount").agg(F.round(F.sum("Discount Value"), 2)).withColumnRenamed("round(sum(Discount Value), 2)", ("Total Lost to Discount")).orderBy("Discount")
+df_lostdiscount.show()
