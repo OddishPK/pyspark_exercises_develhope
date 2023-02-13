@@ -1,0 +1,6 @@
+# what would have been the total profit if we removed all orders from that discount group? 
+
+df_most_disc = df.filter(df["Discount"].isin(most_lost_disc))
+df_new = df.subtract(df_most_disc)
+new_profit = df_new.agg(F.round(F.sum("Profit"), 2)).withColumnRenamed("round(sum(Profit), 2)", "New Profit")
+new_profit.show()
