@@ -1,0 +1,3 @@
+# let's see the totl profit by discount bracket, make sure they are ordered by 
+df_totprof = df.select("Profit","Discount").groupBy("Discount").agg(F.round(F.sum("Profit"), 2)).orderBy("Discount", ascending = True)
+df_totprof.show()
