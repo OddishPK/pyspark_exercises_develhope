@@ -1,0 +1,3 @@
+# is the country with the largest profit ratio, the country with the largest profit?
+
+spark.sql("SELECT Country, round((sum(Profit)/sum(Sales)), 2) AS Profit_ratio, round(sum(Profit),2) AS Total_profit FROM df_sql GROUP BY Country ORDER BY Profit_ratio DESC").show()
