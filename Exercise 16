@@ -1,0 +1,3 @@
+# Use an SQL query to calculate the profit ratio for each country: hint, ratio is sum(profit)/sum(sales)
+
+spark.sql("SELECT Country, round((sum(Profit)/sum(Sales)), 2) AS Profit_ratio FROM df_sql GROUP BY Country").show()
