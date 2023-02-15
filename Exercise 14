@@ -1,0 +1,3 @@
+# create a temporary table for our superstore table in sql
+
+df.createOrReplaceTempView("df_sql")
