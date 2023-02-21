@@ -1,3 +1,6 @@
 # what is the value after which we should stop offering discount?
+
 df_avgprof = df.select("Profit","Discount").groupBy("Discount").agg(F.mean("Profit")).orderBy("Discount", ascending = True)
-df_avgprof.filter(df_avgprof["avg(Profit)"] <= 0).agg(F.min("Discount")).show()
+df_avgprof.show()
+
+#Considering the massive drop from 60.63 to 17.51 between 0.15 and 0.2, discounts should be offered only up to 0.15.
